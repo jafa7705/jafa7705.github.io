@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>University of Colorado Boulder – Semantic HTML5 Recode</title>
+<style>
+:root{--gold:#cfb87c;--ink:#1c1c1c;--bg:#fff;--muted:#555;--line:#ddd}
+*{box-sizing:border-box}
+body{margin:0;font:1rem/1.6 Georgia,"Times New Roman",serif;color:var(--ink);background:var(--bg)}
+.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}
+body>header{background:#000;color:var(--gold);padding:1.5rem 1rem;text-align:center}
+body>header p{margin:.25rem 0 0;color:#ddd;font-style:italic}
+h1{margin:0;font-size:2rem}
+nav{background:#222;position:sticky;top:0;z-index:5}
+nav ul{list-style:none;margin:0;padding:.5rem;display:flex;flex-wrap:wrap;gap:.25rem 1rem;justify-content:center}
+nav a{color:var(--gold);text-decoration:none;font:.9rem system-ui,sans-serif}
+nav a:hover,nav a:focus{text-decoration:underline}
+main{max-width:60rem;margin:0 auto;padding:1rem;display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:800px){main{grid-template-columns:1fr 16rem}aside{order:2}}
+article{min-width:0}
+article>header{background:transparent;color:var(--ink);padding:0;text-align:left}
+article>header h2{border-bottom:2px solid var(--gold);padding-bottom:.25rem}
+h3{margin-top:2rem;border-bottom:1px solid var(--line)}
+section{scroll-margin-top:3rem}
+aside{background:#f6f3ea;border:1px solid var(--line);padding:1rem;font:.9rem system-ui,sans-serif;align-self:start}
+aside h2{font-size:1.1rem;margin-top:0}
+dt{font-weight:700;margin-top:.5rem}dd{margin:0}
+figure{margin:1rem 0}
+.seal{float:right;width:12rem;margin:0 0 1rem 1rem;text-align:center}
+.seal img{margin-inline:auto}
+.image-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem}
+.image-grid figure{margin:0}
+img{max-width:100%;height:auto;display:block}
+figcaption{font-size:.85rem;color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font:.85rem system-ui,sans-serif}
+caption{font-weight:700;text-align:left;padding:.5rem 0}
+th,td{border:1px solid var(--line);padding:.35rem .5rem;text-align:left}
+thead th{background:#f0ead6}
+footer{background:#222;color:#ddd;padding:1rem;text-align:center;font:.85rem system-ui,sans-serif}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>University of Colorado Boulder</h1>
+  <p>“Let your light shine” &mdash; a semantic HTML5 recode of the Wikipedia article</p>
+</header>
+
+<nav aria-label="Article sections">
+  <h2 class="sr-only">Article contents</h2>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#campus">Campus</a></li>
+    <li><a href="#arts">Arts &amp; Museums</a></li>
+    <li><a href="#academics">Academics</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#student-life">Student Life</a></li>
+    <li><a href="#athletics">Athletics</a></li>
+    <li><a href="#people">People</a></li>
+  </ul>
+</nav>
+
+<main>
+  <aside aria-labelledby="facts-title">
+    <h2 id="facts-title">Quick facts</h2>
+    <dl>
+      <dt>Type</dt><dd>Public research university</dd>
+      <dt>Established</dt><dd><time datetime="1876-03-14">March 14, 1876</time></dd>
+      <dt>Chancellor</dt><dd>Justin Schwartz</dd>
+      <dt>Students</dt><dd>38,808 (fall 2025)</dd>
+      <dt>Campus</dt><dd>786 acres, Boulder, Colorado</dd>
+      <dt>Colors</dt><dd>Silver, black and gold</dd>
+      <dt>Nickname</dt><dd>Buffaloes (Big 12)</dd>
+      <dt>Mascots</dt><dd>Ralphie (bison); Chip (costume)</dd>
+    </dl>
+  </aside>
+
+  <article>
+    <header>
+      <h2>About the University</h2>
+      <figure class="seal">
+        <img src="Seal_of_the_University_of_Colorado.svg.webp" width="180" height="180" alt="University of Colorado seal">
+        <figcaption>University of Colorado seal.</figcaption>
+      </figure>
+    </header>
+
+    <section id="overview">
+      <h3>Overview</h3>
+      <figure>
+        <img src="CU_boulder_campus.jpg" width="800" height="450" alt="Sandstone campus buildings with red tile roofs in front of the Flatirons">
+        <figcaption>The main campus, with its sandstone walls and red-tiled roofs.</figcaption>
+      </figure>
+      <p>The University of Colorado Boulder (CU Boulder, CU, or Colorado) is a public research university in Boulder, Colorado. Founded in 1876, five months before Colorado became a state, it is the flagship of the University of Colorado system. It belongs to the Association of American Universities, holds the Carnegie “R1” research classification, and has been called a “Public Ivy.”</p>
+      <p>The university has nine colleges and schools and more than 150 academic programs. It is the only university in the world to have sent instruments to every planet in the Solar System. Alumni, faculty and researchers include 12 Nobel laureates, 10 Pulitzer Prize winners, 20 astronauts and 2 U.S. Supreme Court justices.</p>
+    </section>
+
+    <section id="history">
+      <h3>History</h3>
+      <p>On March 14, 1876, the territorial legislature funded three institutions: the University of Colorado in Boulder, the Colorado School of Mines in Golden and the Colorado Agricultural College in Fort Collins. The cornerstone of Old Main was laid in 1875, and the doors opened on <time datetime="1877-09-05">September 5, 1877</time>. Because few Colorado high schools could prepare students for university work, a preparatory school shared the campus; the first class had 15 college students and 50 preparatory students.</p>
+      <h4>Milestones in access</h4>
+      <ul>
+        <li>1878: Mary Rippon becomes the first female professor.</li>
+        <li>1918: Lucile Berkeley Buchanan becomes the first African American woman to graduate.</li>
+        <li>1956: Charles H. Nilon becomes the first African American professor; his wife Mildred becomes the first African American librarian in 1962.</li>
+      </ul>
+      <p>During World War II, CU was one of 131 institutions in the V-12 Navy College Training Program.</p>
+    </section>
+
+    <section id="campus">
+      <h3>Campus</h3>
+      <p>The main campus lies south of the Pearl Street Mall. The East Campus, about a quarter-mile away, holds athletic fields and research buildings. Travel + Leisure and Condé Nast Traveler have ranked it among the most beautiful campuses in the country.</p>
+
+      <section id="architecture">
+        <h4>Architecture</h4>
+        <p>The distinctive Tuscan Vernacular Revival style was created by architect Charles Klauder. Early buildings such as Old Main and Macky Auditorium were Collegiate Gothic, but in 1919 Klauder shifted to rough sandstone walls, sloping red-tile roofs and Indiana limestone trim. This style guided fifteen buildings between 1921 and 1939 and is still followed today.</p>
+        <figure>
+          <img src="Old_Main_-_Colorado.jpg" width="640" height="420" alt="Old Main, the oldest building on campus" loading="lazy">
+          <figcaption>Old Main, the oldest campus building and once the medical school.</figcaption>
+        </figure>
+      </section>
+
+      <section id="housing">
+        <h4>Residence halls</h4>
+        <p>Students choose among 24 residence halls with 17 room types. Williams Village sits about 1.5 miles from the main campus and is served by a free bus. Residential Academic Programs offer in-dorm classes tied to interests such as international affairs or the environment.</p>
+      </section>
+
+      <section id="buildings">
+        <h4>Notable buildings</h4>
+        <dl>
+          <dt>Norlin Library</dt>
+          <dd>Opened in 1940 and was Klauder’s last design. Its west face carries two inscriptions composed by President Norlin.</dd>
+          <dt>Macky Auditorium</dt>
+          <dd>A Neo-Gothic hall with two towers that seats 2,000 and opened in 1923, thirteen years after construction began, following a lawsuit over Andrew Macky’s estate. It hosts the Boulder Philharmonic, CU Opera and the Conference on World Affairs keynote.</dd>
+          <dt>University Memorial Center (UMC)</dt>
+          <dd>Opened in October 1953 as a memorial to Colorado servicemen. It became the center of 1960s and ’70s student activism, and its Alferd Packer Grill is named for a prospector accused of cannibalism.</dd>
+          <dt>Center for Community (C4C)</dt>
+          <dd>A 323,000-square-foot, $84.4 million facility completed in 2010. It houses student services, an underground garage and a 900-seat dining center.</dd>
+          <dt>Recreation Center</dt>
+          <dd>Built in 1973 with student fees, it includes a climbing gym, the only ice rink in Boulder proper and an outdoor pool shaped like the buffalo mascot.</dd>
+          <dt>Mary Rippon Theatre</dt>
+          <dd>An outdoor theater that hosts the Colorado Shakespeare Festival.</dd>
+        </dl>
+        <figure>
+          <img src="Engineeringcenterjpeg-2.jpg" width="640" height="420" alt="The Engineering Center at CU Boulder" loading="lazy">
+          <figcaption>The Engineering Center on the northeast side of campus.</figcaption>
+        </figure>
+        <figure>
+          <img src="Mackey_Auditorium_-_Colorado.jpg" width="640" height="420" alt="Macky Auditorium with its two towers and ivy" loading="lazy">
+          <figcaption>Macky Auditorium, home of the jazz and choral departments.</figcaption>
+        </figure>
+      </section>
+
+      <section id="neighborhood">
+        <h4>The Hill</h4>
+        <p>University Hill, a college neighborhood, lies directly west of campus. Its main street, 13th Street, features a concert venue and the Fox Theatre.</p>
+      </section>
+    </section>
+
+    <section id="arts">
+      <h3>Arts and Museums</h3>
+      <div class="image-grid" aria-label="Campus arts and facilities">
+        <figure>
+          <img src="Norlin_Library.jpg" width="500" height="290" alt="Norlin Library at CU Boulder" loading="lazy">
+          <figcaption>Norlin Library.</figcaption>
+        </figure>
+        <figure>
+          <img src="Mary_Rippon_Theatre.jpg" width="500" height="178" alt="Mary Rippon Theatre at CU Boulder" loading="lazy">
+          <figcaption>Mary Rippon Theatre.</figcaption>
+        </figure>
+        <figure>
+          <img src="Visual_Arts_Complex_South_side.JPG" width="500" height="375" alt="South side of the Visual Arts Complex" loading="lazy">
+          <figcaption>Visual Arts Complex.</figcaption>
+        </figure>
+        <figure>
+          <img src="WeatherTechCafe.jpg" width="240" height="120" alt="Weather Tech Cafe in the Center for Community" loading="lazy">
+          <figcaption>Weather Tech Cafe.</figcaption>
+        </figure>
+      </div>
+      <p>The CU Art Museum holds a permanent collection of over 5,000 works, and a visual arts complex opened in 2010. The Museum of Natural History, housed in the Henderson building, has one of the most extensive collections in the Rocky Mountain and Plains regions. The CU Heritage Center in Old Main tells the university’s story, and the Fiske Planetarium features a 60-foot dome. The College of Music presents over 400 performances a year, and the Department of Theatre &amp; Dance produces more than twenty shows annually.</p>
+    </section>
+
+    <section id="academics">
+      <h3>Academics</h3>
+
+      <section id="admissions">
+        <h4>Admissions</h4>
+        <p>For the class entering in fall 2021, CU Boulder received 54,756 applications and accepted 43,576 (79.6%). Of those admitted, 6,785 enrolled, a yield of 15.6%. Freshman retention is 87%, and 74% graduate within six years.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>Fall first-time freshman statistics</caption>
+            <thead>
+              <tr><th scope="col">Measure</th><th scope="col">2021</th><th scope="col">2020</th><th scope="col">2019</th><th scope="col">2018</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Applicants</th><td>54,756</td><td>44,171</td><td>40,740</td><td>36,604</td></tr>
+              <tr><th scope="row">Admits</th><td>43,576</td><td>37,189</td><td>31,933</td><td>29,848</td></tr>
+              <tr><th scope="row">Admit rate (%)</th><td>79.6</td><td>84.2</td><td>78.4</td><td>81.5</td></tr>
+              <tr><th scope="row">Enrolled</th><td>6,785</td><td>6,326</td><td>7,113</td><td>6,700</td></tr>
+              <tr><th scope="row">Yield rate (%)</th><td>15.6</td><td>17.0</td><td>22.3</td><td>22.4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="colleges">
+        <h4>Colleges and schools</h4>
+        <p>Arts and Sciences is by far the largest college. The others are Engineering and Applied Science, Environmental Design, Education, Music, Law, the Leeds School of Business, and Communication, Media, Design and Information. About 3,400 courses are offered in over 150 disciplines. The Law School is the smallest and most selective; the Wolf Law Building was dedicated in 2006 by Justice Stephen Breyer.</p>
+      </section>
+
+      <section id="honors">
+        <h4>Honor code and honors programs</h4>
+        <p>The university adopted an honor code in 2000, engraved on a plate in every classroom. The Honors Program, begun in 1931, admits the top ten percent of incoming freshmen and offers over 40 small classes each semester. The Presidents Leadership Class is a four-year leadership program for top scholars.</p>
+      </section>
+
+      <section id="rankings">
+        <h4>Rankings</h4>
+        <p>U.S. News &amp; World Report’s 2025 rankings placed CU Boulder tied for 97th among national universities and tied for 46th among public universities.</p>
+      </section>
+    </section>
+
+    <section id="research">
+      <h3>Research</h3>
+      <p>Eleven research institutes support multidisciplinary work. Three stand out:</p>
+      <ul>
+        <li><strong>Institute for Behavioral Genetics</strong>, founded in 1967, was the first post-World War II institute dedicated to behavioral genetics.</li>
+        <li><strong>Institute of Cognitive Science</strong> studies language, emotion and cognition and has a state-of-the-art fMRI system.</li>
+        <li><strong>ATLAS Institute</strong> blends engineering, computer science and robotics with design.</li>
+      </ul>
+      <p>Others include JILA, LASP, INSTAAR, CIRES, BioFrontiers and RASEI.</p>
+      <h4>Notable achievements</h4>
+      <ul>
+        <li>First to create a Bose–Einstein condensate.</li>
+        <li>First to observe a fermionic condensate.</li>
+        <li>Developed the “FluChip” to diagnose respiratory illness.</li>
+        <li>First place at the 2002 and 2005 U.S. Department of Energy Solar Decathlon.</li>
+        <li>Created the Squid server under a National Science Foundation grant.</li>
+      </ul>
+    </section>
+
+    <section id="student-life">
+      <h3>Student Life</h3>
+      <p>The University of Colorado Student Government has executive, legislative and judicial branches, a $36.6 million budget, and oversight of over 120 student groups. Among the many organizations:</p>
+      <ul>
+        <li><strong>Hiking Club</strong>, founded in 1919, is the oldest student group.</li>
+        <li><strong>Boulder Freeride</strong>, the ski and snowboard club, began in 1933.</li>
+        <li><strong>Cycling team</strong>, founded in 1983, has won multiple national titles, including both disciplines in 2005.</li>
+        <li><strong>CU Gaming</strong>, founded in 2015, has over 3,500 members.</li>
+        <li><strong>Program Council</strong> has brought acts such as The Rolling Stones and Pearl Jam.</li>
+        <li><strong>KVCU Radio 1190</strong> is the college radio station.</li>
+      </ul>
+      <p>About 13% of undergraduates take part in Greek life. In 2010, CU Boulder became the first fully student-run program to win the National Parliamentary Tournament of Excellence.</p>
+    </section>
+
+    <section id="athletics">
+      <h3>Athletics</h3>
+      <figure>
+        <img src="Folsom_Field_panorama_from_club_level_seats_2007.jpg" width="640" height="420" alt="Folsom Field viewed from the club level seating area" loading="lazy">
+        <figcaption>Folsom Field, home of Colorado Buffaloes athletics.</figcaption>
+      </figure>
+      <p>The Colorado Buffaloes compete in NCAA Division I and rejoined the Big 12 in 2024 after leaving the Pac-12. The official colors are silver and gold, though black was substituted on uniforms. The teams were named the Buffaloes in 1934, and the university has won national titles in skiing, cross country and football. The school’s live mascot is a female American bison named Ralphie. Its in-state football rival is Colorado State in the Rocky Mountain Showdown, and Deion Sanders has coached the football team since 2023. CU also supports over 30 club teams.</p>
+    </section>
+
+    <section id="people">
+      <h3>People</h3>
+      <section id="alumni">
+        <h4>Notable alumni</h4>
+        <ul>
+          <li>Tsakhiagiin Elbegdorj, president of Mongolia</li>
+          <li>Wiley Rutledge and Byron White, U.S. Supreme Court justices</li>
+          <li>Scott Carpenter, Ellison Onizuka, Kalpana Chawla and Jack Swigert, astronauts</li>
+          <li>Steve Wozniak, co-founder of Apple</li>
+          <li>Trey Parker and Matt Stone, creators of <cite>South Park</cite></li>
+          <li>Robert Redford and Jonah Hill, actors</li>
+        </ul>
+      </section>
+      <section id="faculty">
+        <h4>Faculty</h4>
+        <p>Nobel laureates on the faculty include David Wineland, John Hall, Eric Cornell and Thomas Cech.</p>
+      </section>
+      <section id="chancellors">
+        <h4>Recent chancellors</h4>
+        <div class="table-wrap">
+          <table>
+            <caption>Recent chancellors of CU Boulder</caption>
+            <thead>
+              <tr><th scope="col">Chancellor</th><th scope="col">Start</th><th scope="col">End</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Richard L. Byyny</th><td>1997</td><td>April 30, 2005</td></tr>
+              <tr><th scope="row">G.P. “Bud” Peterson</th><td>July 15, 2006</td><td>March 31, 2009</td></tr>
+              <tr><th scope="row">Philip P. DiStefano</th><td>May 5, 2009</td><td>June 30, 2024</td></tr>
+              <tr><th scope="row">Justin Schwartz</th><td>July 1, 2024</td><td>Present</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <p>Content adapted from <a href="https://en.wikipedia.org/wiki/University_of_Colorado_Boulder">“University of Colorado Boulder”</a> on Wikipedia, available under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Images retrieved from Wikimedia Commons and stored locally.</p>
+</footer>
+
+</body>
+</html>
