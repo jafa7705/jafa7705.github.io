@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colorado Fourteeners: A Hiker’s Guide and Trip Planner</title>
+  <meta name="description" content="Facts about Colorado’s 14,000-foot peaks, a table of nine well-known summits, and a form for planning a climb.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --spruce: #1f3d36;
+      --snow: #f7f9f8;
+      --lake: #14506e;
+      --aspen: #7a4e0a;
+      --granite: #26302d;
+      --mist: #dfe8e5;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--granite);
+      background: var(--snow);
+    }
+    h1, h2, h3 {
+      font-family: Fraunces, Georgia, serif;
+      line-height: 1.15;
+      color: var(--spruce);
+    }
+    h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 .5rem; color: var(--white); }
+    h2 { font-size: 1.9rem; margin: 0 0 1rem; }
+    h3 { font-size: 1.3rem; margin: 1.5rem 0 .5rem; }
+    p, li { max-width: 68ch; }
+    a { color: var(--lake); text-underline-offset: .2em; }
+    a:hover { color: var(--spruce); }
+    :focus-visible { outline: 3px solid var(--aspen); outline-offset: 3px; }
+    .material-icons { vertical-align: middle; font-size: 1.3em; margin-inline-end: .25em; }
+
+    /* Skip navigation: drops down from the top when focused */
+    .skip-link {
+      position: absolute;
+      top: -5rem;
+      left: 1rem;
+      z-index: 100;
+      padding: .75rem 1.25rem;
+      background: var(--white);
+      color: var(--spruce);
+      font-weight: 700;
+      border: 3px solid var(--aspen);
+      border-top: 0;
+      border-radius: 0 0 .5rem .5rem;
+      transition: top .2s ease-out;
+    }
+    .skip-link:focus { top: 0; }
+
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
+    header[role="banner"], .site-header { background: var(--spruce); color: var(--white); }
+    .hero { padding: 2rem 0 3rem; }
+    .hero p { font-size: 1.25rem; color: var(--mist); }
+    nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; list-style: none; margin: 0; padding: 1rem 0; }
+    nav a { color: var(--white); font-weight: 700; padding: .25rem 0; }
+    nav a:hover { color: var(--mist); }
+    .site-header nav { border-bottom: 1px solid #4b6a62; }
+
+    main { padding: 2.5rem 0 3rem; }
+    main section, main article { margin-bottom: 3.5rem; }
+    blockquote { margin: 1.5rem 0; padding: .5rem 1.25rem; border-left: 6px solid var(--aspen); background: var(--white); }
+    blockquote p { margin: .5rem 0; }
+    figcaption { font-size: 1rem; color: #3f4d49; }
+    mark { background: #ffe9b0; color: var(--granite); padding: 0 .2em; }
+    aside { background: var(--mist); padding: 1rem 1.5rem; border-radius: .5rem; margin: 1.5rem 0; }
+    aside h3 { margin-top: .5rem; }
+    details { background: var(--white); border: 1px solid #b9c7c2; border-radius: .5rem; padding: .75rem 1rem; margin: .75rem 0; }
+    summary { font-weight: 700; cursor: pointer; }
+
+    .table-scroll { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; background: var(--white); min-width: 36rem; }
+    caption { text-align: left; font-weight: 700; padding: .75rem 0; color: var(--spruce); }
+    th, td { padding: .75rem 1rem; border: 1px solid #b9c7c2; text-align: left; }
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    thead th { background: var(--spruce); color: var(--white); }
+    tbody th { background: var(--mist); font-weight: 700; }
+    tbody tr:nth-child(even) td { background: #f1f6f4; }
+    tfoot td { font-size: .95rem; background: var(--snow); }
+
+    form { background: var(--white); border: 1px solid #b9c7c2; border-radius: .5rem; padding: 1.5rem; max-width: 40rem; }
+    fieldset { border: 1px solid #b9c7c2; border-radius: .5rem; margin: 0 0 1.5rem; padding: 1rem 1.25rem; }
+    legend { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 1.2rem; color: var(--spruce); padding: 0 .5rem; }
+    .field { margin-bottom: 1.25rem; }
+    label, .label { display: block; font-weight: 700; margin-bottom: .25rem; }
+    .hint { display: block; font-size: 1rem; color: #3f4d49; margin-bottom: .35rem; }
+    input[type="text"], input[type="email"], input[type="date"], input[type="number"], select, textarea {
+      width: 100%; font: inherit; padding: .65rem .75rem; color: var(--granite);
+      background: var(--white); border: 2px solid #5d6f69; border-radius: .35rem;
+    }
+    textarea { min-height: 7rem; }
+    .choice { display: flex; align-items: center; gap: .6rem; margin: .4rem 0; }
+    .choice label { display: inline; font-weight: 400; margin: 0; }
+    input[type="radio"], input[type="checkbox"] { width: 1.3rem; height: 1.3rem; accent-color: var(--lake); }
+    .req { color: #9b1c1c; }
+    button {
+      font: inherit; font-weight: 700; padding: .75rem 1.5rem; cursor: pointer;
+      color: var(--white); background: var(--lake); border: 2px solid var(--lake); border-radius: .35rem;
+    }
+    button:hover { background: var(--spruce); border-color: var(--spruce); }
+    button[type="reset"] { background: var(--white); color: var(--lake); }
+    button[type="reset"]:hover { background: var(--mist); }
+
+    footer { background: var(--granite); color: var(--snow); padding: 2rem 0; font-size: 1rem; }
+    footer a { color: #cfe6f3; }
+    address { font-style: normal; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .skip-link { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about"><span class="material-icons" aria-hidden="true">terrain</span>About</a></li>
+          <li><a href="#peaks"><span class="material-icons" aria-hidden="true">table_chart</span>Peak data</a></li>
+          <li><a href="#safety"><span class="material-icons" aria-hidden="true">health_and_safety</span>Safety</a></li>
+          <li><a href="#plan"><span class="material-icons" aria-hidden="true">edit_note</span>Plan a climb</a></li>
+        </ul>
+      </nav>
+      <div class="hero">
+        <h1>Colorado Fourteeners</h1>
+        <p>A short guide to the state’s 14,000-foot peaks, with a data table and a trip planning form.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+
+      <article id="about">
+        <header>
+          <h2>About the fourteeners</h2>
+        </header>
+        <p>A fourteener is a mountain with a summit at or above 14,000 feet (4,267 m). Colorado has more of them than any other state in the contiguous United States. The Colorado Mountain Club and the U.S. Geological Survey generally count 58 peaks, although the exact total depends on how much a summit must rise above its neighbor to count as a separate mountain.</p>
+
+        <section aria-labelledby="highest">
+          <h3 id="highest">The highest point in the Rockies</h3>
+          <p>Mount Elbert, in the Sawatch Range, is the tallest peak in Colorado at 14,440 feet. It is also the highest summit in the Rocky Mountains. Its standard routes are non-technical, so it draws a large share of first-time fourteener hikers each summer.</p>
+
+          <figure>
+            <blockquote cite="https://www.nps.gov/romo/index.htm">
+              <p>Most climbers aim to be off the summit by noon, because afternoon thunderstorms build quickly in the high country.</p>
+            </blockquote>
+            <figcaption>A widely repeated rule among Colorado mountaineers, summarized from mountain safety guidance. Source: <cite>Rocky Mountain National Park, National Park Service</cite>.</figcaption>
+          </figure>
+        </section>
+
+        <section aria-labelledby="ranges">
+          <h3 id="ranges">Where the peaks are</h3>
+          <p>Most fourteeners sit in a handful of ranges: the Sawatch Range, the Front Range, the Sangre de Cristo Mountains, the San Juan Mountains, and the Elk Mountains. Peaks near <a href="https://www.denver.gov/">Denver</a>, such as Grays Peak and Mount Bierstadt, are reachable in about an hour and a half by car, which makes them popular for day trips.</p>
+        </section>
+
+        <aside aria-labelledby="altitude">
+          <h3 id="altitude">Altitude and your body</h3>
+          <p>At 14,000 feet the air holds roughly 40 percent less oxygen per breath than at sea level. Headache, nausea, and dizziness can signal <abbr title="acute mountain sickness">AMS</abbr>. If symptoms get worse, descend.</p>
+        </aside>
+      </article>
+
+      <section id="peaks" aria-labelledby="peaks-title">
+        <h2 id="peaks-title">Nine well-known peaks</h2>
+        <p>This table lists nine popular fourteeners with their range and summit elevation. Elevations are rounded to the nearest foot and meter, and are listed from highest to lowest.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-labelledby="peaks-caption">
+          <table>
+            <caption id="peaks-caption">Selected Colorado fourteeners, by elevation</caption>
+            <thead>
+              <tr>
+                <th scope="col">Peak</th>
+                <th scope="col">Mountain range</th>
+                <th scope="col" class="num">Elevation (feet)</th>
+                <th scope="col" class="num">Elevation (meters)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Mount Elbert</th><td>Sawatch Range</td><td class="num">14,440</td><td class="num">4,401</td></tr>
+              <tr><th scope="row">Mount Massive</th><td>Sawatch Range</td><td class="num">14,428</td><td class="num">4,398</td></tr>
+              <tr><th scope="row">Mount Harvard</th><td>Sawatch Range</td><td class="num">14,421</td><td class="num">4,395</td></tr>
+              <tr><th scope="row">Blanca Peak</th><td>Sangre de Cristo Mountains</td><td class="num">14,351</td><td class="num">4,374</td></tr>
+              <tr><th scope="row">Uncompahgre Peak</th><td>San Juan Mountains</td><td class="num">14,309</td><td class="num">4,361</td></tr>
+              <tr><th scope="row">Grays Peak</th><td>Front Range</td><td class="num">14,278</td><td class="num">4,352</td></tr>
+              <tr><th scope="row">Quandary Peak</th><td>Tenmile Range</td><td class="num">14,271</td><td class="num">4,350</td></tr>
+              <tr><th scope="row">Longs Peak</th><td>Front Range</td><td class="num">14,259</td><td class="num">4,346</td></tr>
+              <tr><th scope="row">Pikes Peak</th><td>Front Range</td><td class="num">14,115</td><td class="num">4,302</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td colspan="4">Elevations from U.S. Geological Survey data; published figures vary slightly by source.</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <section id="safety" aria-labelledby="safety-title">
+        <h2 id="safety-title">Safety basics</h2>
+        <p>A few habits prevent most problems on a fourteener. Open any item below for details.</p>
+        <details>
+          <summary>Start early and watch the weather</summary>
+          <p>Begin hiking before sunrise in summer. Turn around if clouds build or you hear thunder. Exposed ridges and summits are the most dangerous places in a lightning storm.</p>
+        </details>
+        <details>
+          <summary>Carry the essentials</summary>
+          <p>Pack at least two liters of water, extra layers, a headlamp, sun protection, a map, and a whistle. Temperatures at the summit can be 25 degrees Fahrenheit colder than at the trailhead.</p>
+        </details>
+        <details>
+          <summary>Follow Leave No Trace</summary>
+          <p>Stay on the trail to protect fragile alpine tundra. Pack out all trash, and carry out human waste where the land manager requires it.</p>
+        </details>
+      </section>
+
+      <section id="plan" aria-labelledby="plan-title">
+        <h2 id="plan-title">Plan a climb</h2>
+        <p>Fill out this form to draft a trip plan you can share with a friend or family member who is not coming along. Fields marked with an asterisk (<span class="req" aria-hidden="true">*</span>) are required.</p>
+
+        <form action="#" method="post">
+          <fieldset>
+            <legend>About you</legend>
+            <div class="field">
+              <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+              <span class="hint" id="email-hint">We will send a copy of your plan here.</span>
+              <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint" required>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>About your trip</legend>
+            <div class="field">
+              <label for="peak">Peak <span class="req" aria-hidden="true">*</span></label>
+              <select id="peak" name="peak" required>
+                <option value="">Choose a peak</option>
+                <option>Mount Elbert</option>
+                <option>Mount Massive</option>
+                <option>Mount Harvard</option>
+                <option>Blanca Peak</option>
+                <option>Uncompahgre Peak</option>
+                <option>Grays Peak</option>
+                <option>Quandary Peak</option>
+                <option>Longs Peak</option>
+                <option>Pikes Peak</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Planned date <span class="req" aria-hidden="true">*</span></label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="field">
+              <label for="party">Number of people in your group</label>
+              <input type="number" id="party" name="party" min="1" max="12" value="1">
+            </div>
+
+            <fieldset>
+              <legend>Experience level</legend>
+              <div class="choice"><input type="radio" id="exp-new" name="experience" value="first" checked><label for="exp-new">This is my first fourteener</label></div>
+              <div class="choice"><input type="radio" id="exp-some" name="experience" value="some"><label for="exp-some">I have climbed a few</label></div>
+              <div class="choice"><input type="radio" id="exp-many" name="experience" value="many"><label for="exp-many">I have climbed ten or more</label></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Gear checklist</legend>
+              <div class="choice"><input type="checkbox" id="g-water" name="gear" value="water"><label for="g-water">Two liters of water</label></div>
+              <div class="choice"><input type="checkbox" id="g-layers" name="gear" value="layers"><label for="g-layers">Warm and rain layers</label></div>
+              <div class="choice"><input type="checkbox" id="g-lamp" name="gear" value="headlamp"><label for="g-lamp">Headlamp</label></div>
+            </fieldset>
+          </fieldset>
+
+          <div class="field">
+            <label for="notes">Route notes</label>
+            <span class="hint" id="notes-hint">Include trailhead, planned turnaround time, and who has your plan.</span>
+            <textarea id="notes" name="notes" aria-describedby="notes-hint"></textarea>
+          </div>
+
+          <button type="submit"><span class="material-icons" aria-hidden="true">send</span>Send trip plan</button>
+          <button type="reset"><span class="material-icons" aria-hidden="true">restart_alt</span>Clear form</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Colorado Fourteeners guide. Created for a web accessibility lab, last updated <time datetime="2026-10-21">October 21, 2026</time>.</p>
+      <address>
+        Questions? <a href="mailto:student@example.edu">student@example.edu</a>
+      </address>
+      <p>Learn more at the <a href="https://www.14ers.com/">14ers.com</a> peak database or the <a href="https://www.nps.gov/romo/index.htm">Rocky Mountain National Park</a> site.</p>
+    </div>
+  </footer>
+</body>
+</html>

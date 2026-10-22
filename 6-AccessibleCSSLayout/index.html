@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A responsive example webpage demonstrating accessible CSS Grid and Flexbox layouts.">
+  <title>Design for Everyone | Accessible Web Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="page-layout">
+    <header class="site-header">
+      <p class="eyebrow">A small guide to better websites</p>
+      <h1>Design for <span>Everyone</span></h1>
+      <p class="header-intro">Thoughtful layouts make the web easier to use on every screen.</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#principles" aria-current="page">Principles</a></li>
+        <li><a href="#responsive">Responsive design</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="main-content">
+      <article id="principles" class="feature-card">
+        <p class="eyebrow">Start with people</p>
+        <h2>Good design welcomes everyone</h2>
+        <p>A useful website should be clear, comfortable to read, and straightforward to navigate. Accessibility is not an extra layer added at the end; it is part of the design from the beginning.</p>
+        <div class="principle-grid" aria-label="Three design principles">
+          <section class="principle">
+            <span class="principle-number" aria-hidden="true">01</span>
+            <h3>Make it clear</h3>
+            <p>Use descriptive headings, plain language, and predictable navigation.</p>
+          </section>
+          <section class="principle">
+            <span class="principle-number" aria-hidden="true">02</span>
+            <h3>Make it flexible</h3>
+            <p>Let content adapt to different screens, zoom levels, and text sizes.</p>
+          </section>
+          <section class="principle">
+            <span class="principle-number" aria-hidden="true">03</span>
+            <h3>Make it usable</h3>
+            <p>Support keyboard users and provide controls that are easy to activate.</p>
+          </section>
+        </div>
+      </article>
+
+      <section id="responsive" class="content-section">
+        <h2>One page, many screens</h2>
+        <p>CSS Grid helps organize a page in two dimensions: rows and columns. Flexbox is ideal for arranging a single row or column of items, such as the navigation links above.</p>
+        <p>On a wide screen, the page can show several regions side by side. On a tablet, the columns become narrower. On a phone, the layout becomes a single column and the navigation links stack vertically for easier tapping.</p>
+      </section>
+
+      <section id="accessibility" class="content-section">
+        <h2>Accessibility is practical</h2>
+        <p>Strong color contrast, readable type, visible keyboard focus, semantic HTML, and generous touch targets help more people use a website successfully.</p>
+        <blockquote>Design for the conditions people actually use—not only the ideal conditions on your own screen.</blockquote>
+      </section>
+    </main>
+
+    <aside class="side-panel side-panel-one" aria-labelledby="quick-checks-title">
+      <h2 id="quick-checks-title">Quick checks</h2>
+      <ul class="check-list">
+        <li>Can you navigate with only a keyboard?</li>
+        <li>Are headings in a logical order?</li>
+        <li>Is the text easy to read?</li>
+        <li>Can links be tapped comfortably?</li>
+      </ul>
+    </aside>
+
+    <aside class="side-panel side-panel-two" aria-labelledby="toolkit-title">
+      <h2 id="toolkit-title">Design toolkit</h2>
+      <p><strong>Structure</strong><br>Semantic HTML landmarks</p>
+      <p><strong>Layout</strong><br>Grid areas and Flexbox</p>
+      <p><strong>Testing</strong><br>Validator, WAVE, and a screen reader</p>
+    </aside>
+
+    <footer id="resources" class="site-footer">
+      <div>
+        <h2>Keep learning</h2>
+        <p>Small improvements can make a meaningful difference.</p>
+      </div>
+      <p class="footer-note">Lab 4 · Responsive and accessible CSS</p>
+    </footer>
+  </div>
+</body>
+</html>
